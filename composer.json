@@ -9,12 +9,8 @@
   "minimum-stability": "stable",
   "require": {},
   "scripts": {
-    "strauss-install": [
-      "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.27.2/strauss.phar"
-    ],
     "strauss": [
-      "@strauss-install",
-      "@php bin/strauss.phar",
+      "@php strauss.phar",
       "@composer dump-autoload"
     ],
     "post-install-cmd": [
