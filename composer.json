@@ -1,0 +1,11 @@
+{
+    "name": "defunctl/composer-github-tokens-test",
+    "description": "Testing composer workflows to see if the GitHub tokens break installs",
+    "autoload": {
+        "psr-4": {
+            "Defunctl\\ComposerGithubTokensTest\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {}
+}
