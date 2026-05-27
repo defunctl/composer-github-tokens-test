@@ -2,6 +2,7 @@ name: Composer install
 
 on:
   push:
+  workflow_dispatch:
 
 jobs:
   composer-install:
