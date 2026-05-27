@@ -1,11 +1,38 @@
 {
-    "name": "defunctl/composer-github-tokens-test",
-    "description": "Testing composer workflows to see if the GitHub tokens break installs",
-    "autoload": {
-        "psr-4": {
-            "Defunctl\\ComposerGithubTokensTest\\": "src/"
-        }
-    },
-    "minimum-stability": "stable",
-    "require": {}
+  "name": "defunctl/composer-github-tokens-test",
+  "description": "Testing composer workflows to see if the GitHub tokens break installs",
+  "autoload": {
+    "psr-4": {
+      "Defunctl\\ComposerGithubTokensTest\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "require": {},
+  "scripts": {
+    "strauss-install": [
+      "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.27.2/strauss.phar"
+    ],
+    "strauss": [
+      "@strauss-install",
+      "@php bin/strauss.phar",
+      "@composer dump-autoload"
+    ],
+    "post-install-cmd": [
+      "@strauss"
+    ],
+    "post-update-cmd": [
+      "@strauss"
+    ]
+  },
+  "extra": {
+    "strauss": {
+      "target_directory": "vendor/vendor-prefixed",
+      "namespace_prefix": "Defunctl\\Demo\\",
+      "classmap_prefix": "Defunctl_",
+      "constant_prefix": "Defunctl_",
+      "delete_vendor_packages": false,
+      "include_modified_date": false,
+      "include_author": false
+    }
+  }
 }
